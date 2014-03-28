@@ -574,6 +574,7 @@ var Chubbo;
             _super.apply(this, arguments);
             this.transitionMarkers = true;
         }
+        //eh
         Music.prototype.update = function () {
             if (this.pendingPlayback && this.game.cache.isSoundReady(this.key)) {
                 _super.prototype.update.call(this);

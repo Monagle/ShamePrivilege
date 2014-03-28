@@ -31,7 +31,7 @@ module Chubbo {
         enemies: Phaser.Group;
 
 
-
+        
         create() {
             this.levelSection = Chubbo.LevelSection.sky;
             this.starfield = this.add.tileSprite(0, 0, 1024, 1024, 'stars');
