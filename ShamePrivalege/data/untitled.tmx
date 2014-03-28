@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="test" tilewidth="32" tileheight="32">
+  <image source="../img/asteroid.png" trans="ffffff" width="32" height="32"/>
+ </tileset>
+ <objectgroup color="#2fa44c" name="Object Layer 1" width="25" height="25">
+  <object gid="1" x="518" y="132"/>
+  <object gid="1" x="389" y="130"/>
+  <object name="TEsObject" type="Test" x="342" y="414" width="47" height="49"/>
+  <object x="278" y="309"/>
+  <object x="180" y="353"/>
+  <object name="Test 1" x="332" y="205" width="51" height="23">
+   <properties>
+    <property name="property" value="value"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,17 @@
+﻿body {
+    background-color: rgb(15, 4,35);
+    /*background: linear-gradient(to bottom, rgb(15, 10,45), black);*/
+    height:130%;
+    color:white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+span {
+    font-style: italic;
+}
+
+canvas
+{
+    border: thin solid grey;
+    /*color: white;*/
+}

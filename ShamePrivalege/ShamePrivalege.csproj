@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{7BA2B32A-7E82-42F3-AEE6-3C1AA6DFF3E1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>0.9</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app.css" />
+    <Content Include="data\sky.txt" />
+    <Content Include="img\asteroid.png" />
+    <Content Include="img\bird.png" />
+    <Content Include="img\level1.png" />
+    <Content Include="img\loader.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\pop.gif" />
+    <Content Include="img\simon.png" />
+    <Content Include="img\sky.png" />
+    <Content Include="img\stars.jpg" />
+    <Content Include="img\stars.png" />
+    <Content Include="img\stars2.png" />
+    <Content Include="img\titlepage.jpg" />
+    <Content Include="img\woman.png" />
+    <Content Include="index.htm" />
+    <Content Include="img\explode.png" />
+    <TypeScriptCompile Include="scripts\app.ts" />
+    <TypeScriptCompile Include="scripts\Boot.ts" />
+    <TypeScriptCompile Include="scripts\Level1.ts" />
+    <TypeScriptCompile Include="scripts\MainMenu.ts" />
+    <TypeScriptCompile Include="scripts\controls.ts" />
+    <TypeScriptCompile Include="scripts\asteroid.ts" />
+    <TypeScriptCompile Include="scripts\data.ts" />
+    <TypeScriptCompile Include="scripts\bird.ts" />
+    <Content Include="scripts\gameScript.js" />
+    <TypeScriptCompile Include="scripts\music.ts" />
+    <Content Include="scripts\phaser.d.ts" />
+    <Content Include="scripts\phaser.js" />
+    <Content Include="scripts\phaser.min.js" />
+    <Content Include="img\Symbol.png" />
+    <TypeScriptCompile Include="scripts\player.ts" />
+    <TypeScriptCompile Include="scripts\Preloader.ts" />
+    <Content Include="sfx\flyingTheme.m4a" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="scripts\game.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Mirvini.com local.pubxml" />
+    <Content Include="scripts\phaser.min.js.map">
+      <DependentUpon>phaser.js</DependentUpon>
+    </Content>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>PhaserTypeScriptGame</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51214/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptOutFile>$(ProjectDir)scripts\gameScript.js</TypeScriptOutFile>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptOutFile>$(ProjectDir)scripts\gameScript.js</TypeScriptOutFile>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

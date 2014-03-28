@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="800" height="3600" tilewidth="1" tileheight="1">
+ <objectgroup name="Object Layer 1" width="800" height="3600">
+  <object name="asteroid" x="84" y="399" width="32" height="32"/>
+  <object name="asteroid" x="233" y="400" width="32" height="32"/>
+  <object name="asteroid" x="450" y="409" width="32" height="32"/>
+  <object name="asteroid" x="385" y="406" width="32" height="32"/>
+  <object name="asteroid" x="310" y="405" width="32" height="32"/>
+  <object name="asteroid" x="547" y="410" width="32" height="32"/>
+  <object name="bird" x="809" y="3435" width="32" height="24">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object name="bird" x="618" y="3349" width="32" height="24">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object name="bird" x="567" y="3301" width="32" height="24">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object name="bird" x="570" y="3267" width="32" height="24">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object name="bird" x="348" y="3138" width="32" height="24">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object name="bird" x="-51" y="3269" width="32" height="24">
+   <properties>
+    <property name="direction" value="right"/>
+   </properties>
+  </object>
+  <object name="bird" x="461" y="3175" width="32" height="24">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object name="bird" x="-3" y="3219" width="32" height="24">
+   <properties>
+    <property name="direction" value="right"/>
+   </properties>
+  </object>
+  <object name="bird" x="55" y="3172" width="32" height="24">
+   <properties>
+    <property name="direction" value="right"/>
+   </properties>
+  </object>
+  <object name="asteroid" x="162" y="393" width="32" height="32"/>
+  <object name="asteroid" x="76" y="1497" width="32" height="32"/>
+  <object name="asteroid" x="196" y="1496" width="32" height="32"/>
+  <object name="asteroid" x="309" y="1492" width="32" height="32"/>
+  <object name="asteroid" x="434" y="1481" width="32" height="32"/>
+  <object name="asteroid" x="545" y="1489" width="32" height="32"/>
+  <object name="asteroid" x="646" y="1483" width="32" height="32"/>
+  <object name="asteroid" x="590" y="1487" width="32" height="32"/>
+  <object name="asteroid" x="357" y="1482" width="32" height="32"/>
+  <object name="asteroid" x="244" y="1482" width="32" height="32"/>
+  <object name="asteroid" x="124" y="1486" width="32" height="32"/>
+  <object name="asteroid" x="10" y="1477" width="32" height="32"/>
+ </objectgroup>
+</map>
