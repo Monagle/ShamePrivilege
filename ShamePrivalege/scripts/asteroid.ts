@@ -1,7 +1,7 @@
 
 module Chubbo {
 
-    export class Asteroid extends Phaser.Sprite implements Chubbo.Enemy{
+    export class Asteroid extends Phaser.Sprite implements Chubbo.Obstacle{
 
         private LevelSpeed: number;
         constructor(game: Phaser.Game, data: Chubbo.jsonSprite, y: number, LevelSpeed: number) {

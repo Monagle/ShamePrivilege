@@ -26,7 +26,11 @@ module Chubbo {
         direction: string;
     }
 
-    export interface Enemy {
+    export interface Obstacle {
         collide(player: Chubbo.Player);
     }
+
+    //export interface Item {
+    //    collide(
+    //}
 }

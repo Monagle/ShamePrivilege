@@ -18,17 +18,17 @@
                  "y":399
                 }, 
                 {
-                 "height":32,
-                 "name":"asteroid",
+                 "height":10,
+                 "name":"nugget",
                  "properties":
                     {
 
                     },
                  "type":"",
                  "visible":true,
-                 "width":32,
+                 "width":10,
                  "x":233,
-                 "y":400
+                 "y":800
                 }, 
                 {
                  "height":32,

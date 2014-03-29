@@ -10,6 +10,7 @@ module Chubbo {
         private burstCooldownLength= Phaser.Timer.SECOND * 3;
 
         private shameDisplay: Phaser.Text;
+        private privilegeDisplay: Phaser.Text;
         private stunnedAnimation: Phaser.Tween;
         private stunned: boolean;
 
@@ -19,7 +20,9 @@ module Chubbo {
         private lastRight: number;
         private burstCooldown: boolean;
 
-        public shame = 0;
+        private shame = 0;
+        private privilege = 0;
+
         uiStyle = { 'font': '22px Helvetica', fill: '#D4B457' };
 
         constructor(game: Phaser.Game, x: number, y: number) {
@@ -56,6 +59,7 @@ module Chubbo {
             this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT).onDown.add(this.burstRight, this);
 
             this.shameDisplay = this.game.add.text(650, 10, "Shame: ", this.uiStyle);
+            this.privilegeDisplay = this.game.add.text(650, 20, "Privilege: ", this.uiStyle);
 
             game.add.existing(this);
 
@@ -63,6 +67,7 @@ module Chubbo {
 
         update() {
             this.shameDisplay.content = "Shame: " + this.shame;
+            this.privilegeDisplay.content = "Pri
 
 
             var control = this.game.input.keyboard;
@@ -91,6 +96,10 @@ module Chubbo {
         public recieveDamage(dmg: number) {
             this.shame += dmg;
             this.beginStun();
+        }
+
+        public gainPrivalege(privalege: number) {
+            this.privilege += privalege;
         }
 
         private burstUp() {

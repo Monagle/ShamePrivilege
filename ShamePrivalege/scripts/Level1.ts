@@ -46,7 +46,7 @@ module Chubbo {
             this.music.addMarker('gameplayStart', 30, 100, .5);  //change middle to 5
             this.music.addMarker('test1', 36, 40, .5);
             this.music.addMarker('earthShows', 41, 256, .5);
-            this.music.play('gameplayStart');
+            //this.music.play('gameplayStart');
 
             this.muteKey = this.input.keyboard.addKey(Phaser.Keyboard.M);
             this.muteKey.onDown.add(this.ToggleMusic, this);
@@ -173,7 +173,7 @@ module Chubbo {
         endSky() { this.levelSection = Chubbo.LevelSection.stars; }
 
         handleEnemyCollision(player, enemy) {
-            (<Chubbo.Enemy>enemy).collide(player);
+            (<Chubbo.Obstacle>enemy).collide(player);
         }
     }
 

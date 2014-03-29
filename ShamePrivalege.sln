@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShamePrivalege", "ShamePrivalege\ShamePrivalege.csproj", "{7BA2B32A-7E82-42F3-AEE6-3C1AA6DFF3E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShamePrivilege", "ShamePrivalege\ShamePrivilege.csproj", "{7BA2B32A-7E82-42F3-AEE6-3C1AA6DFF3E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

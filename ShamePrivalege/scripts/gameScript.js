@@ -63,6 +63,7 @@ var Chubbo;
 
             //this.load.tilemap('test', 'img/test.json', Phaser.Tilemap.TILED_JSON);
             this.load.text('spritePositions', 'data/sky.txt');
+            this.load.text('nugget', 'img/nugget.png');
         };
 
         Preloader.prototype.create = function () {
@@ -143,6 +144,7 @@ var Chubbo;
             this.doubleTapTime = .5;
             this.burstCooldownLength = Phaser.Timer.SECOND * 3;
             this.shame = 0;
+            this.privalege = 0;
             this.uiStyle = { 'font': '22px Helvetica', fill: '#D4B457' };
 
             this.anchor.setTo(0.5, 0.5);
@@ -174,11 +176,13 @@ var Chubbo;
             this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT).onDown.add(this.burstRight, this);
 
             this.shameDisplay = this.game.add.text(650, 10, "Shame: ", this.uiStyle);
+            this.privalegeDisplay = this.game.add.text(650, 20, this.uiStyle);
 
             game.add.existing(this);
         }
         Player.prototype.update = function () {
             this.shameDisplay.content = "Shame: " + this.shame;
+            this.privalegeDisplay;
 
             var control = this.game.input.keyboard;
 
@@ -203,6 +207,10 @@ var Chubbo;
         Player.prototype.recieveDamage = function (dmg) {
             this.shame += dmg;
             this.beginStun();
+        };
+
+        Player.prototype.gainPrivalege = function (privalege) {
+            this.privalege += privalege;
         };
 
         Player.prototype.burstUp = function () {
@@ -342,8 +350,8 @@ var Chubbo;
             this.music.addMarker('gameplayStart', 30, 100, .5); //change middle to 5
             this.music.addMarker('test1', 36, 40, .5);
             this.music.addMarker('earthShows', 41, 256, .5);
-            this.music.play('gameplayStart');
 
+            //this.music.play('gameplayStart');
             this.muteKey = this.input.keyboard.addKey(Phaser.Keyboard.M);
             this.muteKey.onDown.add(this.ToggleMusic, this);
 
@@ -495,16 +503,6 @@ var Chubbo;
 window.onload = function () {
     var game = new Chubbo.Game();
 };
-///<reference path="phaser.d.ts"/>
-var Chubbo;
-(function (Chubbo) {
-    var Controls = (function () {
-        function Controls() {
-        }
-        return Controls;
-    })();
-    Chubbo.Controls = Controls;
-})(Chubbo || (Chubbo = {}));
 var Chubbo;
 (function (Chubbo) {
     var Asteroid = (function (_super) {
@@ -565,6 +563,16 @@ var Chubbo;
         return Bird;
     })(Phaser.Sprite);
     Chubbo.Bird = Bird;
+})(Chubbo || (Chubbo = {}));
+///<reference path="phaser.d.ts"/>
+var Chubbo;
+(function (Chubbo) {
+    var Controls = (function () {
+        function Controls() {
+        }
+        return Controls;
+    })();
+    Chubbo.Controls = Controls;
 })(Chubbo || (Chubbo = {}));
 var Chubbo;
 (function (Chubbo) {
@@ -630,5 +638,32 @@ var Chubbo;
         return Music;
     })(Phaser.Sound);
     Chubbo.Music = Music;
+})(Chubbo || (Chubbo = {}));
+var Chubbo;
+(function (Chubbo) {
+    var Nugget = (function (_super) {
+        __extends(Nugget, _super);
+        function Nugget(game, data, y, LevelSpeed) {
+            _super.call(this, game, data.x, y, 'nugget', 0);
+
+            //this.animations.add('nugget', [0], 0, true);
+            //this.animations.play('bird');
+            this.game.add.existing(this);
+
+            this.LevelSpeed = LevelSpeed;
+        }
+        Nugget.prototype.update = function () {
+            this.y += this.LevelSpeed;
+            if (this.y > this.game.world.height) {
+                this.kill();
+            }
+        };
+
+        Nugget.prototype.collide = function (player) {
+            player.recieveDamage(5);
+        };
+        return Nugget;
+    })(Phaser.Sprite);
+    Chubbo.Nugget = Nugget;
 })(Chubbo || (Chubbo = {}));
 //# sourceMappingURL=gameScript.js.map

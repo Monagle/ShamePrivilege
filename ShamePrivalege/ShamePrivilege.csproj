@@ -44,6 +44,7 @@
     <TypeScriptCompile Include="scripts\bird.ts" />
     <Content Include="scripts\gameScript.js" />
     <TypeScriptCompile Include="scripts\music.ts" />
+    <TypeScriptCompile Include="scripts\nugget.ts" />
     <Content Include="scripts\phaser.d.ts" />
     <Content Include="scripts\phaser.js" />
     <Content Include="scripts\phaser.min.js" />

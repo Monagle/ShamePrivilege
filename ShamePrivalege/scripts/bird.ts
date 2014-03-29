@@ -1,7 +1,7 @@
 
 module Chubbo {
 
-    export class Bird extends Phaser.Sprite implements Chubbo.Enemy {
+    export class Bird extends Phaser.Sprite implements Chubbo.Obstacle {
 
         private LevelSpeed: number;
         private flightDirection: number;

@@ -23,6 +23,8 @@
             this.load.image('level1', 'img/level1.png');
             //this.load.tilemap('test', 'img/test.json', Phaser.Tilemap.TILED_JSON);
             this.load.text('spritePositions', 'data/sky.txt');
+            this.load.text('nugget', 'img/nugget.png');
+
         }
 
         create() {
