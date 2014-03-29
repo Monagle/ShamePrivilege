@@ -31,7 +31,8 @@ module Chubbo {
         }
 
         collide(player: Chubbo.Player) {
-            player.recieveDamage(5);
+            player.gainPrivalege(100);
+            this.kill();
 
         }
 

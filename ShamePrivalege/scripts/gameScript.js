@@ -144,7 +144,7 @@ var Chubbo;
             this.doubleTapTime = .5;
             this.burstCooldownLength = Phaser.Timer.SECOND * 3;
             this.shame = 0;
-            this.privalege = 0;
+            this.privilege = 0;
             this.uiStyle = { 'font': '22px Helvetica', fill: '#D4B457' };
 
             this.anchor.setTo(0.5, 0.5);
@@ -176,13 +176,13 @@ var Chubbo;
             this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT).onDown.add(this.burstRight, this);
 
             this.shameDisplay = this.game.add.text(650, 10, "Shame: ", this.uiStyle);
-            this.privalegeDisplay = this.game.add.text(650, 20, this.uiStyle);
+            this.privilegeDisplay = this.game.add.text(650, 30, "Privilege: ", this.uiStyle);
 
             game.add.existing(this);
         }
         Player.prototype.update = function () {
             this.shameDisplay.content = "Shame: " + this.shame;
-            this.privalegeDisplay;
+            this.privilegeDisplay.content = "Privilege: " + this.privilege;
 
             var control = this.game.input.keyboard;
 
@@ -210,7 +210,7 @@ var Chubbo;
         };
 
         Player.prototype.gainPrivalege = function (privalege) {
-            this.privalege += privalege;
+            this.privilege += privalege;
         };
 
         Player.prototype.burstUp = function () {
@@ -358,7 +358,7 @@ var Chubbo;
             this.debugKey = this.input.keyboard.addKey(Phaser.Keyboard.TILDE);
             this.debugKey.onDown.add(this.ToggleDebugDisplay, this);
 
-            this.enemies = this.game.add.group();
+            this.obstacles = this.game.add.group();
 
             var shameDisplay = this.player = new Chubbo.Player(this.game, 130, 284);
 
@@ -450,18 +450,22 @@ var Chubbo;
             switch (s.name.toLowerCase()) {
                 case "asteroid":
                     var a = new Chubbo.Asteroid(this.game, s, yToSet, this.levelSpeed);
-                    this.enemies.add(a);
+                    this.obstacles.add(a);
                     break;
                 case "bird":
                     var b = new Chubbo.Bird(this.game, s, yToSet, this.levelSpeed);
-                    this.enemies.add(b);
+                    this.obstacles.add(b);
+                    break;
+                case "nugget":
+                    var n = new Chubbo.Nugget(this.game, s, yToSet, this.levelSpeed);
+                    this.obstacles.add(n);
                     break;
             }
         };
 
         Level1.prototype.collideSprites = function () {
             if (!this.player.isStunned()) {
-                this.game.physics.collide(this.enemies, this.player, this.handleEnemyCollision, null, this);
+                this.game.physics.collide(this.obstacles, this.player, this.handleEnemyCollision, null, this);
             }
         };
 
@@ -503,6 +507,16 @@ var Chubbo;
 window.onload = function () {
     var game = new Chubbo.Game();
 };
+///<reference path="phaser.d.ts"/>
+var Chubbo;
+(function (Chubbo) {
+    var Controls = (function () {
+        function Controls() {
+        }
+        return Controls;
+    })();
+    Chubbo.Controls = Controls;
+})(Chubbo || (Chubbo = {}));
 var Chubbo;
 (function (Chubbo) {
     var Asteroid = (function (_super) {
@@ -563,16 +577,6 @@ var Chubbo;
         return Bird;
     })(Phaser.Sprite);
     Chubbo.Bird = Bird;
-})(Chubbo || (Chubbo = {}));
-///<reference path="phaser.d.ts"/>
-var Chubbo;
-(function (Chubbo) {
-    var Controls = (function () {
-        function Controls() {
-        }
-        return Controls;
-    })();
-    Chubbo.Controls = Controls;
 })(Chubbo || (Chubbo = {}));
 var Chubbo;
 (function (Chubbo) {
@@ -660,7 +664,8 @@ var Chubbo;
         };
 
         Nugget.prototype.collide = function (player) {
-            player.recieveDamage(5);
+            player.gainPrivalege(100);
+            this.kill();
         };
         return Nugget;
     })(Phaser.Sprite);

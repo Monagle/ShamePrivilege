@@ -28,10 +28,10 @@ module Chubbo {
         nextSpriteHeight: number;
         spritesExhausted: boolean;
         levelSection: Chubbo.LevelSection;
-        enemies: Phaser.Group;
+        obstacles: Phaser.Group;
 
 
-        
+
         create() {
             this.levelSection = Chubbo.LevelSection.sky;
             this.starfield = this.add.tileSprite(0, 0, 1024, 1024, 'stars');
@@ -54,7 +54,7 @@ module Chubbo {
             this.debugKey = this.input.keyboard.addKey(Phaser.Keyboard.TILDE);
             this.debugKey.onDown.add(this.ToggleDebugDisplay, this);
 
-            this.enemies = this.game.add.group();
+            this.obstacles = this.game.add.group();
 
             var shameDisplay =
                 this.player = new Player(this.game, 130, 284);
@@ -74,9 +74,9 @@ module Chubbo {
             if (this.levelSection == Chubbo.LevelSection.sky) {
                 this.sky.tilePosition.y += 15;
             }
-             else if( this.levelSection == Chubbo.LevelSection.atmosphere) {
-                 this.sky.tilePosition.y += 15;
-                 this.sky.tilePosition.x += .5;
+            else if (this.levelSection == Chubbo.LevelSection.atmosphere) {
+                this.sky.tilePosition.y += 15;
+                this.sky.tilePosition.x += .5;
             }
             this.starfield.tilePosition.x += 0;
             this.starfield.tilePosition.y += 9;
@@ -92,7 +92,7 @@ module Chubbo {
                     if (this.mapLocation < 0) {
                         this.levelSection = Chubbo.LevelSection.atmosphere;
                         var t = this.add.tween(this.sky).to({ alpha: 0 }, 10000, Phaser.Easing.Linear.None, true);
-                        t.onComplete.add(this.endSky,this);
+                        t.onComplete.add(this.endSky, this);
                     }
                     break;
                 case Chubbo.LevelSection.stars:
@@ -154,11 +154,15 @@ module Chubbo {
             switch (s.name.toLowerCase()) {
                 case "asteroid":
                     var a = new Asteroid(this.game, s, yToSet, this.levelSpeed);
-                    this.enemies.add(a);
+                    this.obstacles.add(a);
                     break;
                 case "bird":
                     var b = new Bird(this.game, s, yToSet, this.levelSpeed);
-                    this.enemies.add(b);
+                    this.obstacles.add(b);
+                    break;
+                case "nugget":
+                    var n = new Nugget(this.game, s, yToSet, this.levelSpeed);
+                    this.obstacles.add(n);
                     break;
             }
         }
@@ -166,7 +170,8 @@ module Chubbo {
         collideSprites() {
             if (!this.player.isStunned()) {
 
-            this.game.physics.collide(this.enemies, this.player, this.handleEnemyCollision, null, this);
+                this.game.physics.collide(this.obstacles, this.player, this.handleEnemyCollision, null, this);
+                
             }
         }
 

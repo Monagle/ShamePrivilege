@@ -59,7 +59,7 @@ module Chubbo {
             this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT).onDown.add(this.burstRight, this);
 
             this.shameDisplay = this.game.add.text(650, 10, "Shame: ", this.uiStyle);
-            this.privilegeDisplay = this.game.add.text(650, 20, "Privilege: ", this.uiStyle);
+            this.privilegeDisplay = this.game.add.text(650, 30, "Privilege: ", this.uiStyle);
 
             game.add.existing(this);
 
@@ -67,7 +67,7 @@ module Chubbo {
 
         update() {
             this.shameDisplay.content = "Shame: " + this.shame;
-            this.privilegeDisplay.content = "Pri
+            this.privilegeDisplay.content = "Privilege: " + this.privilege;
 
 
             var control = this.game.input.keyboard;
