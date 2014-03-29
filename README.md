@@ -1,4 +1,4 @@
-**ShamePrivalege**
+**ShamePrivilege**
 ==============
 
 Browser game
