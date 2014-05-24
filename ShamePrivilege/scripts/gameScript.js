@@ -337,7 +337,8 @@ var Chubbo;
             this.levelSpeed = 5;
         }
         Level1.prototype.create = function () {
-            this.levelSection = 0 /* sky */;
+            //this.levelSection = Chubbo.LevelSection.sky;
+            this.levelSection = 2 /* stars */;
             this.starfield = this.add.tileSprite(0, 0, 1024, 1024, 'stars');
             this.sky = this.add.tileSprite(0, 0, 800, 600, 'sky');
 

@@ -86,6 +86,11 @@ module Chubbo {
                 this.body.velocity.x += this.holdSpeed;
             }
 
+            //Lock direction
+            if (control.isDown(Phaser.Keyboard.SHIFT)) {
+
+            }
+
             this.orient();
         }
 

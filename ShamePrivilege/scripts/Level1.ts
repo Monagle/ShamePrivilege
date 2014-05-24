@@ -33,7 +33,8 @@ module Chubbo {
 
 
         create() {
-            this.levelSection = Chubbo.LevelSection.sky;
+            //this.levelSection = Chubbo.LevelSection.sky;
+            this.levelSection = Chubbo.LevelSection.stars;
             this.starfield = this.add.tileSprite(0, 0, 1024, 1024, 'stars');
             this.sky = this.add.tileSprite(0, 0, 800, 600, 'sky')
 
